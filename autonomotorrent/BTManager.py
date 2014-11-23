@@ -59,6 +59,9 @@ class BTManager (object):
         return {
             "client": len(self.connectionManager.clientFactory.active_connection),
             "server": len(self.connectionManager.serverFactory.active_connection)}
+    
+    def get_progress(self):
+        return self.pieceManager.getProgress()
 
     def add_peers(self, peers):
         """Adds peers to the torrent for downloading pieces.

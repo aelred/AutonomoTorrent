@@ -134,4 +134,16 @@ class BTPieceManager:
         else :
             return None
 
+    def getProgress(self):
+        # Return the progress downloading pieces
+        progress = 0.0
         
+        for idx in self.pieces_hash:
+            # get number of slices to indicate amount done
+            task_to_do, task_doing, task_done = self.pieceDownload[idx]
+            num_left = float(len(task_to_do) + len(task_doing))
+            num_done = float(len(task_done))
+            hash_progress = num_done / (num_left + num_done)
+            progress += hash_progress
+
+        return progress / float(self.pieces_size)

@@ -100,6 +100,7 @@ class BTApp:
             pretty_hash = bt_manager.metainfo.pretty_info_hash
             speed = bt_manager.get_speed()
             num_connections = bt_manager.get_num_connections()
+            progress = bt_manager.get_progress()
 
             status[pretty_hash] = {
                 "state": bt_manager.status,
@@ -107,6 +108,7 @@ class BTApp:
                 "speed_down": speed["down"],
                 "num_seeds": num_connections["server"],
                 "num_peers": num_connections["client"],
+                "progress": progress,
                 }
             try:
                 status["all"]["speed_up"] += status[pretty_hash]["speed_up"] 
