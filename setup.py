@@ -1,5 +1,10 @@
-from distribute_setup import use_setuptools
-use_setuptools()
+try:
+    from distribute_setup import use_setuptools
+except IOError:
+    # Continue installation without distribute
+    pass
+else:
+    use_setuptools()
 import os
 import shutil
 import autonomotorrent
