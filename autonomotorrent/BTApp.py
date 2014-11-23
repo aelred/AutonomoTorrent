@@ -120,5 +120,5 @@ class BTApp:
 
         return status
 
-    def start_reactor(self):
-        reactor.run()
+    def start_reactor(self, *args, **kwargs):
+        reactor.run(*args, **kwargs)
