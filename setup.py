@@ -1,6 +1,6 @@
 try:
     from distribute_setup import use_setuptools
-except IOError:
+except ImportError:
     # Continue installation without distribute
     pass
 else:
